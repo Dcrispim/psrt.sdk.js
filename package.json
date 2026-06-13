@@ -4,10 +4,22 @@
   "description": "Stateless PSRT SDK for parsing, editing, and compiling PSRT documents",
   "type": "module",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/browser/index.js",
+  "types": "./dist/browser/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/browser/index.d.ts",
+      "node": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      },
+      "browser": "./dist/browser/index.js",
+      "import": "./dist/browser/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/browser/index.js"
+    },
+    "./node": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
