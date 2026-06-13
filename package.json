@@ -1,0 +1,32 @@
+{
+  "name": "@psrt/sdk",
+  "version": "0.1.1",
+  "description": "Stateless PSRT SDK for parsing, editing, and compiling PSRT documents",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "wasm"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "build:tsc": "tsc",
+    "build:wasm": "node scripts/build-wasm.mjs",
+    "test": "node --experimental-vm-modules node_modules/vitest/vitest.mjs run",
+    "prepublishOnly": "npm run build:wasm && npm run build"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0",
+    "typescript": "^5.7.0",
+    "vitest": "^3.0.0"
+  }
+}
