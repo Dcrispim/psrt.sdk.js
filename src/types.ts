@@ -65,6 +65,21 @@ export interface CompileOptions {
   noScript?: boolean
 }
 
+export interface CompileToHtmlPureOptions extends CompileOptions {
+  observers?: import('./html/steps.js').CompileStepObservers
+  /** Custom fetch for font downloads (Node, tests). Defaults to global fetch. */
+  fetch?: typeof fetch
+  /** Additional PSRT variants bundled into the same HTML (Ctrl+L to switch). */
+  variants?: PsrtVariant[]
+}
+
+/** One PSRT document bundled as an HTML variant alongside the primary doc. */
+export interface PsrtVariant {
+  /** Label shown in the variant switcher hint (defaults to variant-N). */
+  label?: string
+  doc: PsrtDocument
+}
+
 export interface WasmResult {
   ok: boolean
   err?: string

@@ -1,6 +1,14 @@
 export { initPsrt } from './init.browser.js'
 export { parse, stringify, formatDocument } from './parse.js'
-export { compileToHtml, compileToSvg } from './compile.js'
+export { compileToHtml, compileToHtmlPure, compileToHtmlPureAsync, compileToSvg } from './compile.js'
+export {
+  CompileStep,
+  notifyObservers,
+  resolveDocumentPure,
+  type CompileStepContext,
+  type CompileStepObserver,
+  type CompileStepObservers,
+} from './compile.js'
 export { Transformer, transform } from './transformer.js'
 export {
   adaptEntriesForWeb,
@@ -11,6 +19,8 @@ export {
 export * from './editor/index.js'
 export type {
   CompileOptions,
+  CompileToHtmlPureOptions,
+  PsrtVariant,
   Document,
   MaskPositionFields,
   Page,
