@@ -1,5 +1,5 @@
 export { initPsrt } from './init.js'
-export { parse, stringify, formatDocument } from './parse.js'
+export { parse, parseFast, loadSource, stringify, formatDocument } from './parse.js'
 export { compileToHtml, compileToHtmlPure, compileToHtmlPureAsync, compileToSvg } from './compile.js'
 export {
   CompileStep,
@@ -33,3 +33,11 @@ export type {
   TextBlock,
 } from './types.js'
 export { resolveDocument, resolveDocumentStrict } from './resolve.js'
+export {
+  attachSourcesToDocument,
+  createAssetRegistry,
+  hydrateSourcesFromDocument,
+  resolveAssetUrl,
+  type AssetRegistry,
+  type ResolveAssetUrlOptions,
+} from './assets/registry.js'

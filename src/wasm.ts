@@ -92,6 +92,14 @@ export function invokeParse(psrtString: string): PsrtDocument {
   return parseDocResult(call('parse', psrtString))
 }
 
+export function invokeParseFast(psrtString: string): PsrtDocument {
+  return parseDocResult(call('parseFast', psrtString))
+}
+
+export function invokeLoadSource(raw: string, url: string): string {
+  return parseTextResult(call('loadSource', raw, url))
+}
+
 export function invokeStringify(doc: PsrtDocument): string {
   return parseTextResult(call('stringify', encodeDoc(doc)))
 }

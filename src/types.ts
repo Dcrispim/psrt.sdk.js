@@ -6,6 +6,8 @@ export interface PsrtDocument {
   pages: PsrtPage[]
   fonts: string[]
   consts: Record<string, string>
+  /** Embedded assets from $SOURCE block (URL → data URI). */
+  sources?: Record<string, string>
 }
 
 export type Document = PsrtDocument

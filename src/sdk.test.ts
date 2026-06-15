@@ -74,4 +74,30 @@ $END p
     expect(resolved.pages[0]?.imageUrl).toBe('https://example.com/a.png')
     expect(resolved.pages[0]?.texts[0]?.content).toBe('text')
   })
+
+  it('parse $SOURCE and hydrate registry', async () => {
+    const { parse } = await import('./parse.js')
+    const { createAssetRegistry, hydrateSourcesFromDocument, resolveAssetUrl } = await import(
+      './assets/registry.js'
+    )
+
+    const raw = `$START p | {} | https://cdn.example/img.png
+>>10-10-30-3 | {} | 0
+hi
+$END p
+
+$SOURCE
+https://cdn.example/img.png | data:image/png;base64,QUFB
+$ENDSOURCE
+`
+    const doc = parse(raw)
+    expect(doc.sources?.['https://cdn.example/img.png']).toContain('base64')
+
+    const { document, registry } = hydrateSourcesFromDocument(doc)
+    expect(document.sources).toEqual({})
+    expect(registry.has('https://cdn.example/img.png')).toBe(true)
+
+    const resolved = await resolveAssetUrl('https://cdn.example/img.png', { registry })
+    expect(resolved).toBe('data:image/png;base64,QUFB')
+  })
 })
