@@ -3,6 +3,7 @@ import {
   TypeKey,
   TypeMask,
   TypeMotionDiv,
+  TypePath,
   TypeRect,
   TypeSpan,
   getFragmentString,
@@ -151,6 +152,22 @@ function rectAttrs(fragment: StyleFragment, includeLayout: boolean): string {
     ? ['x', 'y', 'width', 'height', 'fill', 'stroke', 'stroke-width', 'rx', 'filter', 'mask']
     : ['fill', 'stroke', 'stroke-width', 'rx', 'filter', 'mask']
 
+  const parts: string[] = []
+  for (const key of keys) {
+    const raw = fragment[key]
+    if (raw === null || raw === undefined) continue
+    const value = String(raw)
+    if (!value) continue
+    parts.push(`${key}="${svgEscape(value)}"`)
+  }
+  return parts.join(' ')
+}
+
+/** SVG attrs for a TypePath fragment — no layout (x/y/width/height) or `rx`:
+ * the contour comes from the path's own `d`, not a rect geometry. */
+export function pathDecorationAttrs(fragment: StyleFragment | null | undefined): string {
+  if (!fragment || getFragmentString(fragment, TypeKey) !== TypePath) return ''
+  const keys = ['fill', 'stroke', 'stroke-width', 'filter', 'mask']
   const parts: string[] = []
   for (const key of keys) {
     const raw = fragment[key]

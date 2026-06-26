@@ -1,6 +1,6 @@
 {
   "name": "@psrt/sdk",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Stateless PSRT SDK for parsing, editing, and compiling PSRT documents",
   "type": "module",
   "main": "./dist/index.cjs",

@@ -41,6 +41,11 @@ export function maskLayerDomId(pageName: string, maskIndex: number, variantIndex
   return `psrt-mask-${slugPageName(pageName)}-${maskIndex}-v${variantIndex}`
 }
 
+/** DOM id for a path mask block (page + index + variant). */
+export function pathMaskLayerDomId(pageName: string, maskIndex: number, variantIndex: number): string {
+  return `psrt-pathmask-${slugPageName(pageName)}-${maskIndex}-v${variantIndex}`
+}
+
 export function buildHtmlVariants(
   primary: PsrtDocument,
   extra?: { label?: string; doc: PsrtDocument }[],

@@ -226,6 +226,41 @@ describe('compileToHtmlPure', () => {
     expect(html).toContain('background-color:#000000ff')
   })
 
+  it('renders a path mask as a clipped inline svg', () => {
+    const doc = {
+      pages: [
+        {
+          name: 'p',
+          style: {},
+          imageUrl: tinyPngDataUri,
+          texts: [],
+          pathMasks: [
+            {
+              x: 10,
+              y: 10,
+              width: 30,
+              height: 20,
+              index: 0,
+              style: { background: '#eee9b2', border: '1px solid #000' },
+              path: 'M10,50 C10,25 30,10 50,10 Z',
+            },
+          ],
+        },
+      ],
+      fonts: [],
+      consts: {},
+    }
+    const html = compileToHtmlPure(doc, { noScript: true })
+    expect(html).toContain('class="text-layer psrt-mask psrt-path-mask psrt-v-0"')
+    expect(html).toContain('id="psrt-pathmask-p-0-v0"')
+    expect(html).toContain('viewBox="0 0 100 100"')
+    expect(html).toContain('<clipPath id="psrt-pathmask-p-0-0-clip">')
+    expect(html).toContain('<path d="M10,50 C10,25 30,10 50,10 Z"/>')
+    expect(html).toContain('fill="#eee9b2"')
+    expect(html).toContain('stroke="#000"')
+    expect(extractStyleProp(html, 'text-layer', 'left')).toBe('10%')
+  })
+
   it('renders page background color', () => {
     const doc = {
       pages: [

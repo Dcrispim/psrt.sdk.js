@@ -1,4 +1,4 @@
-import type { PsrtMask, PsrtPage, PsrtText } from '../../types.js'
+import type { PsrtMask, PsrtPage, PsrtPathMask, PsrtText } from '../../types.js'
 import type { AssetMap } from '../assets/dimensions.js'
 import { imageDimensions } from '../assets/dimensions.js'
 import { googleFontLinkHrefs } from '../assets/fetchFontAssets.js'
@@ -10,12 +10,14 @@ import {
   fontFamilyNameForURL,
   isAssetReference,
 } from '../assets/refs.js'
-import { BlockMask, BlockText, pageBlocksByIndex } from '../document/pageBlocks.js'
+import { BlockMask, BlockPathMask, BlockText, pageBlocksByIndex } from '../document/pageBlocks.js'
 import { appendTextLayerGeometryCSS } from '../geometry/textBlockGeometry.js'
 import { backgroundColorFromStyle, textFontSizePx } from '../geometry/layoutHelpers.js'
 import { adaptHTML } from '../style/adapter.js'
 import { adaptMaskHTML } from '../style/maskAdapter.js'
-import { htmlLayerCSS } from '../style/render.js'
+import { adaptPathMaskHTML } from '../style/pathMaskAdapter.js'
+import { TypeKey, TypePath, getFragmentString } from '../style/fragment.js'
+import { htmlLayerCSS, pathDecorationAttrs } from '../style/render.js'
 import { normalizeTextContent, renderInlineHTML } from '../text/inlineMarkup.js'
 import { CompileStep, notifyObservers, type CompileStepObservers } from '../steps.js'
 import type { CompileOptions } from '../../types.js'
@@ -24,6 +26,7 @@ import {
   maskLayerDomId,
   overlayDomId,
   pageByName,
+  pathMaskLayerDomId,
   textLayerDomId,
   variantLabels,
 } from '../variants.js'
@@ -219,6 +222,68 @@ function writeMaskLayer(
   parts.push(`<div id="${escapeHtmlAttr(layerId)}" class="${classes}" style="${escapeHtmlAttr(boxCSS)}"></div>`)
 }
 
+function writePathMaskLayer(
+  parts: string[],
+  m: PsrtPathMask,
+  assets: AssetMap,
+  canvasW: number,
+  canvasH: number,
+  variantIndex: number,
+  linksOnly: boolean,
+  pageName: string,
+  observers: CompileStepObservers | undefined,
+): void {
+  const frags = adaptPathMaskHTML({
+    text: { x: m.x, y: m.y, width: m.width, textSize: 0, style: m.style, index: m.index, content: '' },
+    pathMask: m,
+    canvasW,
+    canvasH,
+    htmlCompile: true,
+    pageSlug: pageName,
+    textIndex: m.index,
+  })
+  notifyObservers(observers, {
+    step: CompileStep.ADAPT_STYLE,
+    pageName,
+    blockIndex: m.index,
+    kind: 'pathMask',
+  })
+
+  const { boxCSS } = htmlLayerCSS(frags)
+  const pathFrag = frags.find((f) => getFragmentString(f, TypeKey) === TypePath)
+  const pathAttrs = pathDecorationAttrs(pathFrag)
+
+  const layerId = pathMaskLayerDomId(pageName, m.index, variantIndex)
+  const classes = `text-layer psrt-mask psrt-path-mask ${variantClass(variantIndex)}`
+
+  notifyObservers(observers, {
+    step: CompileStep.RENDER_MASK,
+    pageName,
+    maskIndex: m.index,
+  })
+
+  parts.push(`<div id="${escapeHtmlAttr(layerId)}" class="${classes}" style="${escapeHtmlAttr(boxCSS)}">`)
+
+  const clipID = `psrt-pathmask-${pageName}-${variantIndex}-${m.index}-clip`
+  const d = escapeHtmlAttr(m.path)
+  parts.push('<svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">')
+  parts.push(`<defs><clipPath id="${escapeHtmlAttr(clipID)}"><path d="${d}"/></clipPath></defs>`)
+  parts.push(pathAttrs ? `<path d="${d}" ${pathAttrs}/>` : `<path d="${d}" fill="transparent"/>`)
+
+  const imgRef = (m.imageRef ?? '').trim()
+  if (imgRef && isAssetReference(imgRef)) {
+    const aa = assets.get(imgRef)
+    if (linksOnly || (aa && aa.mime.startsWith('image/'))) {
+      const refURI = assetRef(imgRef, aa, linksOnly)
+      parts.push(
+        `<image x="0" y="0" width="100" height="100" href="${escapeHtmlAttr(refURI)}" clip-path="url(#${escapeHtmlAttr(clipID)})" preserveAspectRatio="xMidYMid slice"/>`,
+      )
+    }
+  }
+
+  parts.push('</svg></div>')
+}
+
 function writeVariantOverlay(
   parts: string[],
   variantPage: PsrtPage,
@@ -255,6 +320,18 @@ function writeVariantOverlay(
       writeMaskLayer(
         parts,
         entry.mask,
+        assets,
+        canvasW,
+        canvasH,
+        variantIndex,
+        linksOnly,
+        variantPage.name,
+        observers,
+      )
+    } else if (entry.kind === BlockPathMask && entry.pathMask) {
+      writePathMaskLayer(
+        parts,
+        entry.pathMask,
         assets,
         canvasW,
         canvasH,

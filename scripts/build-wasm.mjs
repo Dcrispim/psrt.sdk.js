@@ -4,13 +4,18 @@ import { copyFileSync, mkdirSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..')
+// `wasmbuild` is a standalone Go module (its own go.mod/go.sum) that depends
+// on github.com/Dcrispim/psrt.core via `go get` (see that directory) instead
+// of assuming a local sibling checkout of the core repo — the core and this
+// SDK are separate repositories in practice, so the build must fetch the
+// core like any other Go dependency.
+const root = join(dirname(fileURLToPath(import.meta.url)), '..', 'wasmbuild')
 const wasmDir = join(dirname(fileURLToPath(import.meta.url)), '..', 'wasm')
 mkdirSync(wasmDir, { recursive: true })
 
 const build = spawnSync(
   'go',
-  ['build', '-ldflags=-s -w', '-o', join(wasmDir, 'psrt.wasm'), './cmd/psrt-wasm'],
+  ['build', '-ldflags=-s -w', '-o', join(wasmDir, 'psrt.wasm'), 'github.com/Dcrispim/psrt.core/cmd/psrt-wasm'],
   { cwd: root, env: { ...process.env, GOOS: 'js', GOARCH: 'wasm' }, stdio: 'inherit' }
 )
 if (build.status !== 0) {

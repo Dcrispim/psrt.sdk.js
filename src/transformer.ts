@@ -1,5 +1,15 @@
 import { parse, stringify } from './parse.js'
-import type { MaskPositionFields, PositionFields, PsrtDocument, PsrtMask, PsrtPage, PsrtStyle, PsrtText } from './types.js'
+import type {
+  MaskPositionFields,
+  PathMaskPositionFields,
+  PositionFields,
+  PsrtDocument,
+  PsrtMask,
+  PsrtPage,
+  PsrtPathMask,
+  PsrtStyle,
+  PsrtText,
+} from './types.js'
 import {
   addConst,
   removeConst,
@@ -35,6 +45,14 @@ import {
   setMaskPosition,
   setMaskStyle,
 } from './editor/mask.js'
+import {
+  addPathMask,
+  removePathMask,
+  removePathMaskStyleKey,
+  setPathMaskPath,
+  setPathMaskPosition,
+  setPathMaskStyle,
+} from './editor/pathmask.js'
 
 /** Fluent builder for chained PSRT document edits. */
 export class Transformer {
@@ -211,6 +229,46 @@ export class Transformer {
 
   removeMaskStyleKey(pageName: string, maskIndex: number, key: string): this {
     this._doc = removeMaskStyleKey(this._doc, pageName, maskIndex, key)
+    return this
+  }
+
+  setPathMaskPosition(pageName: string, maskIndex: number, pos: PathMaskPositionFields): this {
+    this._doc = setPathMaskPosition(this._doc, pageName, maskIndex, pos)
+    return this
+  }
+
+  addPathMask(
+    pageName: string,
+    mask: PsrtPathMask,
+    opts?: { beforeIndex?: number; afterIndex?: number }
+  ): this {
+    this._doc = addPathMask(this._doc, pageName, mask, opts?.beforeIndex ?? -1, opts?.afterIndex ?? -1)
+    return this
+  }
+
+  removePathMask(pageName: string, maskIndex: number): this {
+    this._doc = removePathMask(this._doc, pageName, maskIndex)
+    return this
+  }
+
+  setPathMaskStyle(
+    pageName: string,
+    maskIndex: number,
+    key: string,
+    value: string,
+    partial?: PsrtStyle
+  ): this {
+    this._doc = setPathMaskStyle(this._doc, pageName, maskIndex, key, value, partial)
+    return this
+  }
+
+  removePathMaskStyleKey(pageName: string, maskIndex: number, key: string): this {
+    this._doc = removePathMaskStyleKey(this._doc, pageName, maskIndex, key)
+    return this
+  }
+
+  setPathMaskPath(pageName: string, maskIndex: number, path: string): this {
+    this._doc = setPathMaskPath(this._doc, pageName, maskIndex, path)
     return this
   }
 

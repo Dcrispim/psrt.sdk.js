@@ -8,6 +8,7 @@ export const TypeDiv = 'div'
 export const TypeFilter = 'filter'
 export const TypeMask = 'mask'
 export const TypeG = 'g'
+export const TypePath = 'path'
 
 export type StyleFragment = Record<string, unknown> & { __type__: string }
 

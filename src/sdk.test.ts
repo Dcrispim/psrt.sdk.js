@@ -75,6 +75,79 @@ $END p
     expect(resolved.pages[0]?.texts[0]?.content).toBe('text')
   })
 
+  it('parse/stringify round-trip for ~~ path mask', async () => {
+    const { parse, stringify } = await import('./parse.js')
+
+    const raw = `$START p | {} | https://example.com/a.png
+~~10-10-30-20 | {"background":"#eee9b2"} | 0
+M10,50 C10,25 30,10 50,10 C70,10 90,25 90,50 Z
+$END p
+`
+    const doc = parse(raw)
+    const pathMasks = doc.pages[0]?.pathMasks
+    expect(pathMasks?.length).toBe(1)
+    expect(pathMasks?.[0]?.path).toContain('M10,50')
+    expect(pathMasks?.[0]?.index).toBe(0)
+
+    const out = stringify(doc)
+    expect(out).toContain('~~10-10-30-20')
+    expect(out).toContain('M10,50')
+  })
+
+  it('Transformer chain matches pure functions for path masks', async () => {
+    const { parse } = await import('./parse.js')
+    const {
+      addPathMask,
+      removePathMask,
+      removePathMaskStyleKey,
+      setPathMaskPath,
+      setPathMaskPosition,
+      setPathMaskStyle,
+    } = await import('./editor/pathmask.js')
+    const { transform } = await import('./transformer.js')
+
+    const raw = `$START p | {} | https://example.com/a.png
+$END p
+`
+    const base = parse(raw)
+    const pageName = base.pages[0]?.name
+    expect(pageName).toBeTruthy()
+
+    const mask = {
+      x: 5,
+      y: 5,
+      width: 50,
+      height: 30,
+      index: 9999,
+      path: 'M0,0 L100,0 L100,100 Z',
+      style: {},
+    }
+
+    const chained = transform(base)
+      .addPathMask(pageName!, mask)
+      .setPathMaskPosition(pageName!, 9999, { x: 12 })
+      .setPathMaskStyle(pageName!, 9999, 'background', '"#fff"')
+      .removePathMaskStyleKey(pageName!, 9999, 'background')
+      .setPathMaskPath(pageName!, 9999, 'M0,0 L50,0 L50,50 Z')
+      .build()
+
+    let manual = addPathMask(base, pageName!, mask)
+    manual = setPathMaskPosition(manual, pageName!, 9999, { x: 12 })
+    manual = setPathMaskStyle(manual, pageName!, 9999, 'background', '"#fff"')
+    manual = removePathMaskStyleKey(manual, pageName!, 9999, 'background')
+    manual = setPathMaskPath(manual, pageName!, 9999, 'M0,0 L50,0 L50,50 Z')
+
+    for (const doc of [chained, manual]) {
+      const m = doc.pages[0]?.pathMasks?.find((pm) => pm.index === 9999)
+      expect(m?.x).toBe(12)
+      expect(m?.path).toBe('M0,0 L50,0 L50,50 Z')
+      expect(m?.style).toEqual({})
+    }
+
+    const removed = transform(chained).removePathMask(pageName!, 9999).build()
+    expect(removed.pages[0]?.pathMasks?.some((pm) => pm.index === 9999) ?? false).toBe(false)
+  })
+
   it('parse $SOURCE and hydrate registry', async () => {
     const { parse } = await import('./parse.js')
     const { createAssetRegistry, hydrateSourcesFromDocument, resolveAssetUrl } = await import(

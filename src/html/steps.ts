@@ -26,7 +26,7 @@ export type CompileStepContext =
       step: typeof CompileStep.ADAPT_STYLE
       pageName: string
       blockIndex: number
-      kind: 'text' | 'mask'
+      kind: 'text' | 'mask' | 'pathMask'
     }
   | { step: typeof CompileStep.RENDER_FONTS; fontCount: number }
   | { step: typeof CompileStep.RENDER_HEAD; title: string }

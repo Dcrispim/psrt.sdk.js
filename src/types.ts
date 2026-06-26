@@ -18,6 +18,7 @@ export interface PsrtPage {
   imageUrl: string
   texts: PsrtText[]
   masks?: PsrtMask[]
+  pathMasks?: PsrtPathMask[]
 }
 
 export type Page = PsrtPage
@@ -54,6 +55,26 @@ export interface PositionFields {
 }
 
 export interface MaskPositionFields {
+  x?: number
+  y?: number
+  width?: number
+  height?: number
+}
+
+/** PSRT path mask block (~~ header): arbitrary SVG-path-shaped coverage. */
+export interface PsrtPathMask {
+  x: number
+  y: number
+  width: number
+  height: number
+  style: PsrtStyle
+  index: number
+  /** SVG path `d` attribute content, interpreted in a 0-100 local viewBox. */
+  path: string
+  imageRef?: string
+}
+
+export interface PathMaskPositionFields {
   x?: number
   y?: number
   width?: number

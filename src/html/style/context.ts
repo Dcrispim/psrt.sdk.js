@@ -1,10 +1,11 @@
-import type { PsrtMask, PsrtText } from '../../types.js'
+import type { PsrtMask, PsrtPathMask, PsrtText } from '../../types.js'
 import type { ImageDims } from './percent.js'
 
 export type AdaptContext = {
   style?: Record<string, unknown>
   text: PsrtText
   mask?: PsrtMask
+  pathMask?: PsrtPathMask
   canvasW: number
   canvasH: number
   fontSizePx?: number
