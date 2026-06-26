@@ -1,6 +1,7 @@
 import { applyPercentHandlers } from './percent.js'
 import { normalizeStyle } from './names.js'
 import {
+  TypeKey,
   TypeMotionDiv,
   TypePath,
   mergeFragments,
@@ -141,4 +142,39 @@ function extractBorderColor(border: string): string {
   if (parts.length >= 3) return parts.slice(2).join(' ')
   if (parts.length === 2) return parts[1] ?? ''
   return border
+}
+
+/** Structured (non-HTML-string) counterpart of {@link adaptPathMaskHTML}, for
+ * live web preview consumers (e.g. React) that need a style object instead
+ * of a serialized `style="..."` attribute. Reuses the same fragments. */
+export interface PathMaskWebStyle {
+  box: Record<string, string>
+  path: { fill?: string; stroke?: string; strokeWidth?: string }
+}
+
+export function adaptPathMaskWeb(ctx: AdaptContext): PathMaskWebStyle {
+  const fragments = adaptPathMaskHTML(ctx)
+  const boxFrag = fragments.find((f) => getFragmentString(f, TypeKey) === TypeMotionDiv)
+  const pathFrag = fragments.find((f) => getFragmentString(f, TypeKey) === TypePath)
+
+  const box: Record<string, string> = {}
+  if (boxFrag) {
+    for (const [key, raw] of Object.entries(boxFrag)) {
+      if (key === TypeKey || raw === undefined || raw === null) continue
+      const value = String(raw)
+      if (value) box[key] = value
+    }
+  }
+
+  const path: PathMaskWebStyle['path'] = {}
+  if (pathFrag) {
+    const fill = getFragmentString(pathFrag, 'fill')
+    if (fill) path.fill = fill
+    const stroke = getFragmentString(pathFrag, 'stroke')
+    if (stroke) path.stroke = stroke
+    const strokeWidth = getFragmentString(pathFrag, 'stroke-width')
+    if (strokeWidth) path.strokeWidth = strokeWidth
+  }
+
+  return { box, path }
 }

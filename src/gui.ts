@@ -1,4 +1,6 @@
 import { invokeRaw, invokeText } from './wasm.js'
+import { adaptPathMaskWeb as adaptPathMaskWebImpl, type PathMaskWebStyle } from './html/style/pathMaskAdapter.js'
+import type { AdaptContext } from './html/style/context.js'
 import type { PsrtDocument } from './types.js'
 
 export interface WebPreviewStyle {
@@ -16,6 +18,14 @@ export function adaptEntriesForWeb(
 ): WebPreviewStyle[] {
   return invokeRaw<WebPreviewStyle[]>('adaptEntriesForWeb', entriesJSON, canvasW, canvasH, zoom)
 }
+
+/** Adapts a `~~` path mask for live web preview: box layout CSS plus fill/stroke
+ * for the SVG `<path>`. Pure TS, no WASM round-trip (mirrors adaptPathMaskHTML). */
+export function adaptPathMaskWeb(ctx: AdaptContext): PathMaskWebStyle {
+  return adaptPathMaskWebImpl(ctx)
+}
+
+export type { PathMaskWebStyle, AdaptContext }
 
 /** Applies a page PSRT fragment into a full document. */
 export function mergePageDocumentPSRT(
