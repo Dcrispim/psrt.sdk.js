@@ -1,5 +1,5 @@
 export { initPsrt } from './init.js'
-export { parse, parseFast, loadSource, stringify, formatDocument } from './parse.js'
+export { parse, parseFast, loadSource, stringify, formatDocument, convertLegacyDocument } from './parse.js'
 export { compileToHtml, compileToHtmlPure, compileToHtmlPureAsync, compileToSvg } from './compile.js'
 export {
   CompileStep,
@@ -23,6 +23,7 @@ export * from './editor/index.js'
 export type {
   CompileOptions,
   CompileToHtmlPureOptions,
+  InitOptions,
   PsrtVariant,
   Document,
   MaskPositionFields,

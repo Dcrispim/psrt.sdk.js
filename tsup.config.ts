@@ -5,6 +5,7 @@ const shared = {
   sourcemap: true,
   clean: true,
   splitting: false,
+  shims: true,
   esbuildOptions(options: { loader?: Record<string, string> }) {
     options.loader = {
       ...options.loader,

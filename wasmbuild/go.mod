@@ -3,7 +3,7 @@ module psrt-sdk-wasmbuild
 go 1.26.3
 
 require (
-	github.com/Dcrispim/psrt.core v1.0.2 // indirect
+	github.com/Dcrispim/psrt.core v1.3.0 // indirect
 	github.com/chromedp/cdproto v0.0.0-20260427013145-5737772c319b // indirect
 	github.com/chromedp/chromedp v0.15.1 // indirect
 	github.com/chromedp/sysutil v1.1.0 // indirect

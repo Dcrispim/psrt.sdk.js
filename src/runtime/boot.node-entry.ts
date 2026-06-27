@@ -1,5 +1,6 @@
-import { setWasmExports, wireWasmFromGlobal } from '../wasm.js'
+import { invokeConfigure, setWasmExports, wireWasmFromGlobal } from '../wasm.js'
 import { loadCoreBytesNode, loadGoRuntimeNode } from './boot.node.js'
+import type { InitOptions } from '../types.js'
 
 declare class Go {
   importObject: WebAssembly.Imports
@@ -36,18 +37,19 @@ async function startCore(bytes: ArrayBuffer): Promise<void> {
   wireWasmFromGlobal()
 }
 
-/** Loads the PSRT core once (Node). */
-export async function bootCore(): Promise<void> {
+/** Loads the PSRT core once (Node) and applies `options`, also once. */
+export async function bootCore(options?: InitOptions): Promise<void> {
   if (bootPromise) {
     return bootPromise
   }
-  if ((globalThis as { psrtWasm?: unknown }).psrtWasm) {
-    wireWasmFromGlobal()
-    return
-  }
   bootPromise = (async () => {
-    const bytes = await loadCoreBytesNode()
-    await startCore(bytes)
+    if ((globalThis as { psrtWasm?: unknown }).psrtWasm) {
+      wireWasmFromGlobal()
+    } else {
+      const bytes = await loadCoreBytesNode()
+      await startCore(bytes)
+    }
+    invokeConfigure(options)
   })()
   return bootPromise
 }

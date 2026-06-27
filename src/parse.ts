@@ -1,9 +1,27 @@
-import { invokeFormatDocument, invokeLoadSource, invokeParse, invokeParseFast, invokeStringify } from './wasm.js'
+import {
+  invokeConvertLegacyDocument,
+  invokeFormatDocument,
+  invokeLoadSource,
+  invokeParse,
+  invokeParseFast,
+  invokeStringify,
+} from './wasm.js'
 import type { PsrtDocument } from './types.js'
 
 /** Converts a .psrt string into a typed PsrtDocument. */
 export function parse(psrtString: string): PsrtDocument {
   return invokeParse(psrtString)
+}
+
+/**
+ * Rewrites raw .psrt text written before the comma coordinate separator
+ * (hyphen-separated >>/==/~~ headers, e.g. `>>50-50-80-2`) into the current
+ * grammar (`>>50,50,80,2`), so it can be fed into parse()/parseFast(). The
+ * legacy format never supported negative coordinates, so this is a
+ * straight separator swap with no sign ambiguity to resolve.
+ */
+export function convertLegacyDocument(raw: string): string {
+  return invokeConvertLegacyDocument(raw)
 }
 
 /** Parses without loading $SOURCE payloads (keys only). */
