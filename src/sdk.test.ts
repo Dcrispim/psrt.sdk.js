@@ -12,9 +12,12 @@ beforeAll(async () => {
 
 describe('@psrt/sdk', () => {
   it('parse/stringify round-trip', async () => {
-    const { parse, stringify } = await import('./parse.js')
-    const fixturePath = join(sdkRoot, '..', '..', 'assets', 'psrts', 'o-home-que-nao-desistia-pt-br.psrt')
-    const raw = readFileSync(fixturePath, 'utf8')
+    const { parse, stringify, convertLegacyDocument } = await import('./parse.js')
+    const fixturePath = join(sdkRoot, 'assets', 'o-home-que-nao-desistia-pt-br.psrt')
+    // This fixture predates the comma coordinate separator (hyphen-separated
+    // >>/== headers); convert it before parsing, same as any real legacy
+    // .psrt would need.
+    const raw = convertLegacyDocument(readFileSync(fixturePath, 'utf8'))
     const doc = parse(raw)
     expect(doc.pages.length).toBeGreaterThan(0)
     const out = stringify(doc)
@@ -23,13 +26,12 @@ describe('@psrt/sdk', () => {
   })
 
   it('Transformer chain matches pure functions', async () => {
-    const { parse } = await import('./parse.js')
+    const { parse, convertLegacyDocument } = await import('./parse.js')
     const { addText, setTextContent } = await import('./editor/text.js')
     const { transform } = await import('./transformer.js')
 
-    const raw = readFileSync(
-      join(sdkRoot, '..', '..', 'assets', 'psrts', 'o-home-que-nao-desistia-pt-br.psrt'),
-      'utf8'
+    const raw = convertLegacyDocument(
+      readFileSync(join(sdkRoot, 'assets', 'o-home-que-nao-desistia-pt-br.psrt'), 'utf8')
     )
     const base = parse(raw)
     const pageName = base.pages[0]?.name
@@ -65,7 +67,7 @@ describe('@psrt/sdk', () => {
 @img | https://example.com/a.png
 $ENDCONSTS
 $START p | {} | @img@
->>10-10-30-3 | {} | 0
+>>10,10,30,3 | {} | 0
 text
 $END p
 `)
@@ -79,7 +81,7 @@ $END p
     const { parse, stringify } = await import('./parse.js')
 
     const raw = `$START p | {} | https://example.com/a.png
-~~10-10-30-20 | {"background":"#eee9b2"} | 0
+~~10,10,30,20 | {"background":"#eee9b2"} | 0
 M10,50 C10,25 30,10 50,10 C70,10 90,25 90,50 Z
 $END p
 `
@@ -90,7 +92,7 @@ $END p
     expect(pathMasks?.[0]?.index).toBe(0)
 
     const out = stringify(doc)
-    expect(out).toContain('~~10-10-30-20')
+    expect(out).toContain('~~10,10,30,20')
     expect(out).toContain('M10,50')
   })
 
@@ -155,7 +157,7 @@ $END p
     )
 
     const raw = `$START p | {} | https://cdn.example/img.png
->>10-10-30-3 | {} | 0
+>>10,10,30,3 | {} | 0
 hi
 $END p
 
@@ -172,5 +174,35 @@ $ENDSOURCE
 
     const resolved = await resolveAssetUrl('https://cdn.example/img.png', { registry })
     expect(resolved).toBe('data:image/png;base64,QUFB')
+  })
+
+  it('convertLegacyDocument rewrites hyphen coords to commas', async () => {
+    const { parse, convertLegacyDocument } = await import('./parse.js')
+
+    const legacy = `$START p | {} | https://example.com/a.png
+>>50-50-80-2 | {"color":"#fff"} | 0
+hello
+==6.58-6.17-22.37-1.89 | {"bg":"#eee9b2"} | 1
+~~10-10-20-5 | {"bg":"#fff"} | 2
+M10,50 L20,50 Z
+$END p
+`
+    const converted = convertLegacyDocument(legacy)
+    expect(converted).toContain('>>50,50,80,2')
+    expect(converted).toContain('==6.58,6.17,22.37,1.89')
+    expect(converted).toContain('~~10,10,20,5')
+    // Path body content (which legitimately contains commas) must be left untouched.
+    expect(converted).toContain('M10,50 L20,50 Z')
+
+    const doc = parse(converted)
+    const page = doc.pages[0]!
+    expect(page.texts[0]?.x).toBe(50)
+    expect(page.masks?.[0]?.width).toBe(22.37)
+    expect(page.pathMasks?.[0]?.height).toBe(5)
+  })
+
+  it('convertLegacyDocument rejects a malformed legacy header', async () => {
+    const { convertLegacyDocument } = await import('./parse.js')
+    expect(() => convertLegacyDocument('>>50-50-80 | {} | 0\nhi\n')).toThrow()
   })
 })

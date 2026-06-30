@@ -1,4 +1,4 @@
-import type { CompileOptions, PsrtDocument, PsrtStyle, WasmResult } from './types.js'
+import type { CompileOptions, InitOptions, PsrtDocument, PsrtStyle, WasmResult } from './types.js'
 
 const decoder = new TextDecoder()
 const encoder = new TextEncoder()
@@ -100,12 +100,24 @@ export function invokeLoadSource(raw: string, url: string): string {
   return parseTextResult(call('loadSource', raw, url))
 }
 
+export function invokeConvertLegacyDocument(raw: string): string {
+  return parseTextResult(call('convertLegacyDocument', raw))
+}
+
 export function invokeStringify(doc: PsrtDocument): string {
   return parseTextResult(call('stringify', encodeDoc(doc)))
 }
 
 export function invokeFormatDocument(doc: PsrtDocument): string {
   return parseTextResult(call('formatDocument', encodeDoc(doc)))
+}
+
+/** Applies process-wide formatting options. Called once by initPsrt() at boot. */
+export function invokeConfigure(options?: InitOptions): void {
+  const result = call('configure', options ?? {})
+  if (!result.ok) {
+    throw new Error(result.err ?? 'PSRT configure failed')
+  }
 }
 
 export function invokeCompileToHtml(

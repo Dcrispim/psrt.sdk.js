@@ -1,0 +1,262 @@
+$START inicio | "{}" | @baseURL@001.jpg
+>>17.35-34.84-48.98-3.52 | "{\"color\":\"#000000\",\"text-align\":\"center\",\"background\":\"#f2b078\",\"border-radius\":\"5px\",\"text-transform\":\"uppercase\",\"font-weight\":\"700\",\"font-family\":\"monospace\"}" | 0
+O home que não desistia
+>>7.98-92.38-20.16-3 | "{\"text-align\":\"center\",\"color\":\"#ffffff\",\"text-transform\":\"uppercase\",\"font-weight\":\"700\"}" | 1
+Tradução
+>>6.8-94.83-21.85-3 | "{\"text-align\":\"center\",\"color\":\"#ffffff\"}" | 2
+Diego Costa
+$END inicio
+$START pagina_1 | "{}" | @baseURL@002.jpg
+>>13.93-9.91-13.05-1.44 | "{\"color\":\"#000000\",\"padding\":\"0.49%\",\"text-align\":\"center\",\"background\":\"#edeee2\",\"border-radius\":\"100px\"}" | 0
+É uma perda total... tudo foi engolido pelo fogo!
+>>30.29-7.46-17.85-1.4 | "{\"padding\":\"0.69%\",\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#edeee2\",\"border-radius\":\"100px\"}" | 1
+A fabrica foi perdida... E **NÓS** estamos perdidos também
+>>54.78-9.27-11.92-1.49 | "{\"padding\":\"0.27%\",\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#edeee2\",\"border-radius\":\"100px\",\"font-family\":\"Inter\"}" | 3
+Oh, Doug, não 
+pode ser tão ruim 
+assim!
+==69.46-7.34-26.22-2.64 | "{\"background\":\"#edeee2\"}" | 4
+==78.61-9.44-17.03-2.86 | "{\"background\":\"#edeee2\",\"border-radius\":\"1px 0px 0px 53px\"}" | 5
+==80.21-12.22-15.48-3.08 | "{\"background\":\"#edeee2\",\"border-radius\":\"1px 0px 31px 100px\"}" | 6
+>>68.11-7.61-26.93-1.33 | "{\"text-align\":\"justify\",\"color\":\"#000000\",\"background\":\"#edeee2\"}" | 7
+É verdade Maria! Com a fabrica destruída, 
+meu trabalho não existe mais!
+>>80.05-9.75-16-1.49 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 8
+Vamos ter que 
+vender a casa...
+Mudar de cidade... 
+Começar do zero!
+>>5.66-37.12-18.28-1.4 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#fcf6ee\",\"border-radius\":\"100px\",\"height\":\"5.04%\"}" | 9
+Mas, pai... Mr. Barkley 
+vai reconstruir a fabrica 
+novamente, não vai?
+==38.14-37.26-22.38-4.86 | "{\"background\":\"#fcf6ee\",\"border-radius\":\"100px\"}" | 10
+==43.82-41.15-11.28-1.88 | "{\"background\":\"#fcf6ee\",\"border-radius\":\"100px\"}" | 11
+>>38-36.85-22.38-1.31 | "{\"padding\":\"0.57%\",\"text-align\":\"center\",\"color\":\"#000000\"}" | 12
+Se ele não reconstruir, nós 
+estamos  **Perdidos!** Metade das 
+pessoas da cidade dependem dela 
+para trabalhar... 
+e pagar as contas!
+>>54.96-41.95-11.05-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#f3f2e3\",\"font-weight\":\"400\",\"border-radius\":\"100px\"}" | 13
+Sem a fábrica a cidade vai quebrar!
+>>64.2-38.49-16.95-1.22 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#f3f2e3\",\"border-radius\":\"100px\"}" | 14
+Mesmo se eles 
+reconstruírem, minhas 
+reservas não vão durar 
+até eles começarem a
+pagar os salários de 
+novo!
+==68.43-47.14-14.54-2.49 | "{\"background\":\"#e9e9dd\",\"border-radius\":\"15px\"}" | 15
+==76.74-48.87-7.73-1.98 | "{\"background\":\"#e9e9dd\",\"border-radius\":\"17px\"}" | 16
+>>67.65-46.84-15.17-1.32 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"height\":\"2.37%\"}" | 17
+Eu eu vou encontrar
+outro trabalho... com a
+>>76.36-49.18-7.72-1.39 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"height\":\"2.14%\"}" | 18
+**Minha** idade?
+>>5.92-66.96-21.16-1.7 | "{\"text-align\":\"left\",\"color\":\"#000000\",\"background\":\"#e8e97b\",\"height\":\"3.56%\",\"letter-spacing\":\"0em\"}" | 19
+**N**a casa de Ben Barkley, dono da loja de maquinas...
+==5.75-71.7-18.98-7.7 | "{\"background\":\"#edf1ea\",\"border-radius\":\"100px\"}" | 20
+==5.87-76.78-18.33-4.35 | "{\"background\":\"#edf1ea\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"100px\",\"border-bottom-right-radius\":\"100px\",\"border-bottom-left-radius\":\"56px\"}" | 21
+>>6.34-72.57-17.64-1.42 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 22
+Acabei de vir de lá, Bob... A planta  foi abaixo..., não, sem seguro, eles disseram que foi muito além da cobertura contra incêndio... eu estou **Quebrado!!!**
+>>51.3-66.71-15.86-1.58 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#dcaaa9\",\"height\":\"1.58%\"}" | 23
+**N**o dia Seguinte
+==51.4-68.46-30.79-5.93 | "{\"background\":\"#e3e3db\",\"border-bottom-left-radius\":\"64px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"65px\",\"border-top-right-radius\":\"100px\"}" | 24
+==51.4-72.69-27.78-5.14 | "{\"background\":\"#e3e3db\",\"border-radius\":\"100px\"}" | 25
+>>52.31-68.77-25.79-1.58 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 26
+Barkley, você se deu mal aqui, porque você tem uma planta antiga em um local indesejável! Venha para **MillerTown** e gere emprego para os nossos cidadãos! Nós arranjamos um emprestimo para financiar uma nova fábrica... em **Millertown**
+==82.66-70.3-13.19-7.51 | "{\"background\":\"#e7e9e1\",\"border-bottom-left-radius\":\"34px\",\"border-bottom-right-radius\":\"68px\",\"border-top-left-radius\":\"100px\",\"border-top-right-radius\":\"100px\"}" | 27
+>>83.3-69.97-11.4-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 28
+Eu 
+fique acordado a noite toda... Me dê um tem para pensar a respeito...
+>>94.15-93.66-1.5-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"font-weight\":\"700\",\"background\":\"#e1d7be\"}" | 29
+2
+==11.92-79.35-7.82-2.92 | "{\"background\":\"#edf1ea\",\"border-radius\":\"100px\"}" | 30
+$END pagina_1
+$START pagina_2 | "{}" | @baseURL@003.jpg
+==16.35-8.87-22.49-1.98 | "{\"background\":\"#edefe2\",\"border-radius\":\"100px\",\"font-weight\":\"400\"}" | 0
+==11.44-9.97-26.83-1.96 | "{\"background\":\"#edefe2\",\"border-radius\":\"100px\"}" | 1
+==16.88-10.62-18.51-3 | "{\"background\":\"#edefe2\",\"border-radius\":\"100px\"}" | 2
+==40.47-9.14-12.12-3.16 | "{\"background\":\"#ede6d4\",\"border-bottom-left-radius\":\"44px\",\"border-bottom-right-radius\":\"53px\",\"border-top-left-radius\":\"28px\",\"border-top-right-radius\":\"100px\"}" | 3
+==39.08-11.56-12.62-2.37 | "{\"background\":\"#ede6d4\",\"border-radius\":\"29px\"}" | 4
+==34.93-12.63-12.77-3.9 | "{\"background\":\"#ede6d4\",\"border-radius\":\"53px\"}" | 5
+==62.02-7.49-32.27-4.35 | "{\"background\":\"#eae9d6\",\"border-radius\":\"49px\"}" | 6
+==65.66-11.4-28.08-1.39 | "{\"background\":\"#eae9d6\"}" | 7
+==70.6-12.44-17.31-1.58 | "{\"background\":\"#eae9d6\"}" | 8
+==15.34-37.31-34.92-2.37 | "{\"background\":\"#e5ece5\",\"border-radius\":\"27px\"}" | 9
+==18.98-39.01-28.93-1.98 | "{\"background\":\"#e5ece5\"}" | 10
+==39.97-40.21-9.87-1.98 | "{\"background\":\"#e5ece5\"}" | 11
+==56.75-37.41-21.88-8.27 | "{\"background\":\"#e6ece3\",\"border-radius\":\"100px\"}" | 12
+==78.43-45.78-16.06-5.44 | "{\"background\":\"#e6ece3\"}" | 13
+==5.87-70.61-10.36-15.6 | "{\"background\":\"#d6d9d1\"}" | 14
+==17.08-66.55-25.59-3.31 | "{\"background\":\"#eaede5\",\"border-radius\":\"30px\"}" | 15
+==19.02-69.1-23.15-1.55 | "{\"background\":\"#eaede5\",\"border-radius\":\"26px\"}" | 16
+==32.49-71.47-14.51-1.58 | "{\"background\":\"#eaede5\",\"border-radius\":\"85px\"}" | 17
+==33.49-72.58-13.57-5.08 | "{\"background\":\"#eaede5\",\"border-radius\":\"40px\"}" | 18
+==36.43-77.27-10.67-1.94 | "{\"background\":\"#eaede5\",\"border-radius\":\"18px\"}" | 19
+==51.19-68.18-14.56-4.26 | "{\"background\":\"#eaede5\",\"border-radius\":\"41px\"}" | 20
+==54.09-72.07-8.33-1.55 | "{\"background\":\"#eaede5\"}" | 21
+==67.46-66.46-17.59-3.98 | "{\"background\":\"#eaede5\",\"border-bottom-left-radius\":\"40px\",\"border-bottom-right-radius\":\"39px\",\"border-top-left-radius\":\"18px\",\"border-top-right-radius\":\"18px\"}" | 22
+==67.55-70.38-17.57-3.75 | "{\"background\":\"#eaede5\",\"border-radius\":\"35px\"}" | 23
+>>12.74-8.7-26.83-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 24
+Vamos, querido... 
+um pouco de café vai te fazer bem... 
+limpar sua cabeça
+>>38.82-9.05-12.47-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 25
+Não adianta, Martha... não importa o quanto penso,
+>>35.19-13.96-10.12-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 26
+as contas não fecham!
+>>62.47-7.82-31.17-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 27
+Sem o cobertura de incêndio, eu não consigo pegar dinheiro emprestado suficiente para uma nova planta... e eu não tenho o suficiente para investir por conta própria
+>>16.04-37.39-33.02-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 28
+Isso mesmo... Eu estou ligando para todos os meus amigos... Eu odeio dizer isso, mas nós não podemos reconstruir aqui em Riverton
+>>59.43-38.17-17.35-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 29
+Eu recebi uma oferta financeira  de Millertown... Parece que eu terei que aceitar... ou sair dos negócios!
+>>79.27-46.08-13.17-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 30
+Sim... Claro, Ben... nós estávamos esperando... mas nós  entendemos...
+>>6.31-71.34-9.48-1.45 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"height\":\"14.23%\"}" | 31
+**M**ás noticias 
+viajam rápido... Pouco tempo depois toda Riverton estava discutindo sobre a decisão de Barkley!
+>>17.43-66.39-25.74-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 32
+Eu queria pegar algumas latas dessas... mas nós estamos **segurando** um pouco as contas!
+>>34.14-71.52-13.17-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 33
+Sim, de fato... com a fábrica indo embora, não sei quando o Doug vai receber novamente!
+>>51.06-68.51-14.51-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 34
+Todos nós podemos nos mudar para Millertown com eles!
+>>67.65-66.75-17.3-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 35
+Sim, com a gente sem trabalho, as lojas não vão ter ninguém para vender também... Riverton vai desmoronar como uma tenda!
+>>92.5-92.87-2.09-1.46 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"background\":\"#f0f1e3\",\"font-weight\":\"700\"}" | 36
+3
+$END pagina_2
+$START pagina_3 | "{}" | @baseURL@004.jpg
+==7.76-7.15-13.32-1.94 | "{\"background\":\"#bdedfb\"}" | 0
+==21.52-7.12-11.43-4.57 | "{\"background\":\"#eae8d3\",\"border-bottom-left-radius\":\"0px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"100px\"}" | 1
+==15.37-9.57-13.82-3 | "{\"background\":\"#eae8d3\",\"border-radius\":\"43px\"}" | 2
+==36.58-7.08-10.99-2.22 | "{\"background\":\"#eae8d3\",\"border-radius\":\"46px\"}" | 3
+==35.69-9.09-11.84-3.58 | "{\"background\":\"#eae8d3\",\"border-radius\":\"100px\"}" | 4
+==60.28-7.13-25.94-6.98 | "{\"background\":\"#eae8d3\",\"border-radius\":\"100px\"}" | 5
+==63.87-13.55-13.62-1.94 | "{\"background\":\"#eae8d3\",\"border-radius\":\"100px\"}" | 6
+==83.73-13.61-8.69-4.65 | "{\"background\":\"#eae8d3\",\"border-radius\":\"72px\"}" | 7
+==13.54-39.04-18.05-6.59 | "{\"background\":\"#eae8d3\",\"border-radius\":\"100px\"}" | 8
+==8.56-47.03-13.82-6.56 | "{\"background\":\"#eae8d3\",\"border-radius\":\"58px\"}" | 9
+==69.77-37.53-21.08-6.59 | "{\"background\":\"#efe9da\",\"border-radius\":\"100px\"}" | 10
+==26.6-65.97-19.05-7.03 | "{\"background\":\"#edead7\",\"border-radius\":\"100px\"}" | 11
+==29.78-71.86-15.27-7.03 | "{\"background\":\"#edead7\",\"border-bottom-left-radius\":\"100px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"33px\",\"border-top-right-radius\":\"100px\"}" | 12
+==48.8-66.27-31.27-4.23 | "{\"background\":\"#efefe1\",\"border-bottom-left-radius\":\"0px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"100px\"}" | 13
+==65.39-69.87-8.67-2.08 | "{\"background\":\"#efefe1\",\"border-radius\":\"100px\"}" | 14
+==92.36-92.52-2.11-1.66 | "{\"background\":\"#efefe1\"}" | 15
+>>7.72-7.02-13.56-1.73 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"font-weight\":\"400\"}" | 16
+**N**aquela noite...
+>>21.68-7.59-11.76-1.69 | "{\"text-align\":\"left\",\"color\":\"#000000\"}" | 17
+Doug... 
+você mal tocou
+>>15.31-10.75-12.49-1.69 | "{\"text-align\":\"left\",\"color\":\"#000000\"}" | 18
+na sua comida!
+>>35.58-7.68-12.72-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 19
+Desculpe 
+Maria... estou só pensando...
+>>60.53-7.78-25.3-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 20
+A reconstrução da fábrica vai custar dinheiro... Então muitos vão ficar desempregados... Logo as lojas da cidade vão fechar as portas!
+>>85.47-14.47-5.57-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 21
+Mas pai...
+>>14.13-39.16-17.05-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 22
+Se o senhor precisa de dinheiro, eu tenho um pouco na minha conta no banco!
+>>7.63-46.87-15.4-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 23
+Obrigado 
+Tommy, mas precisamos de mais dinheiro do que **você** tem
+guardado
+>>70.22-38.64-20.13-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 24
+Talvez vamos precisar de milhares de contas bancarias... **Já sei!**
+>>26.35-66.39-20.07-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 25
+Tem um monte de pessoas na cidade que **precisam** daquela fábrica para pagar as contas!!
+>>29.78-73.2-16.05-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 26
+A maioria de  nós tem um **pouco** de dinheiro guardado!
+>>48.56-66.29-30.22-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 27
+Se pessoas suficiente perceberem que suas casas e trabalhos estão na reta, talvez eles **contribuam!**
+>>92.07-92.4-2.96-1.69 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 28
+4
+$END pagina_3
+$START pagina_4 | "{}" | @baseURL@005.jpg
+==6.49-6.15-22.37-1.89 | "{\"background\":\"#eee9b2\"}" | 0
+==11.94-8.36-13.33-4.23 | "{\"background\":\"#eeeade\",\"border-radius\":\"100px\"}" | 1
+==12.44-11.11-11.29-4.23 | "{\"background\":\"#eeeade\",\"border-radius\":\"100px\"}" | 2
+==30.1-6.2-16.26-4.92 | "{\"background\":\"#eeeade\",\"border-radius\":\"100px\"}" | 3
+==34.65-10.75-7.02-1.94 | "{\"background\":\"#eeeade\",\"border-radius\":\"100px\"}" | 4
+==52.53-6.25-34.54-2.8 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 5
+==68.68-8.06-18.95-3.59 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 6
+==70.87-9.93-16.17-2.82 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 7
+==7.02-35.81-10.7-4.61 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 8
+==6.85-39.02-10.26-6.63 | "{\"background\":\"#eae6d9\",\"border-bottom-left-radius\":\"100px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"100px\",\"border-top-right-radius\":\"37px\"}" | 9
+==7.87-43.89-8.92-3.41 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 10
+==27.3-35.67-19.05-5.64 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 11
+==55.84-35.91-24.42-2.58 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 12
+==56.56-37.91-12.49-2.58 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 13
+==56.91-40-10.3-2.58 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 14
+==81.3-35.61-10.3-2.91 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 15
+==79.46-38.36-12.59-2.91 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 16
+==6.43-65.34-13.38-1.86 | "{\"background\":\"#badbe2\"}" | 17
+==20.26-65.33-14.81-5.09 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 18
+==6.28-67.4-22.3-4.66 | "{\"background\":\"#eae6d9\",\"border-bottom-left-radius\":\"100px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"100px\"}" | 19
+==7.77-71.46-13.16-1.98 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 20
+==16.88-83.03-8.62-1.98 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 21
+==13.17-84.58-18.06-3.58 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 22
+==16.58-87.83-10.44-2.23 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 23
+==49.31-65.34-45.01-1.86 | "{\"background\":\"#badbe2\"}" | 24
+==61.4-67.54-18.66-4.23 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 25
+==65.66-70.55-14.85-4.23 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 26
+==67.92-73.39-13.29-2.89 | "{\"background\":\"#eae6d9\",\"border-radius\":\"100px\"}" | 27
+==81.03-67.46-13.29-6.27 | "{\"background\":\"#eae6d9\",\"border-bottom-left-radius\":\"100px\",\"border-bottom-right-radius\":\"100px\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"100px\"}" | 28
+==82.45-72.41-11.63-7.1 | "{\"background\":\"#eae6d9\",\"border-bottom-left-radius\":\"100px\",\"border-bottom-right-radius\":\"29px\",\"border-top-left-radius\":\"0px\",\"border-top-right-radius\":\"0px\"}" | 29
+==92.45-92-1.83-1.47 | "{\"background\":\"#eae6d9\"}" | 30
+>>6.18-6.24-22.78-1.67 | "{\"color\":\"#000000\",\"text-align\":\"center\"}" | 31
+Mais tarde naquela noite...
+>>12.81-8.85-11.49-1.67 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 32
+Olá, Mary... Recebi uma ligação do Doug...
+>>30.9-6.79-14.14-1.67 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 33
+Eu sei, Ed... os outros estão lá dentro esperando por você!
+>>50.62-6.22-36.79-1.54 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 34
+... e issa é a história! Nenhum de nós pode fazer sozinho, mas juntos talvez a gente consiga
+>>69.86-8.98-17.88-1.54 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 35
+salvar a fábrica... e salvar nossos trabalhos tambem
+>>7.32-36.22-9.76-1.44 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 36
+Isso é uma boa ideia... mas supondo  que  o
+>>7.05-41.54-9.73-1.44 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 37
+Barkley já tenha decidido fazer a mudança ??
+>>28.31-36.02-17.12-1.44 | "{\"text-align\":\"center\",\"color\":\"#000000\"}" | 38
+Só há um jeito de descobrir... Vamos eleger um comitê para falar com ele!
+>>55.32-36.03-23.61-1.44 | "{\"color\":\"#000000\",\"text-align\":\"center\"}" | 39
+Então está combinado... Doug, Fred, Joe e Pete foram
+>>56.31-38.5-11.89-1.44 | "{\"color\":\"#000000\",\"text-align\":\"center\"}" | 40
+eleitos para ver o senhor Barkley
+>>80.56-35.11-11.44-1.54 | "{\"color\":\"#000000\",\"text-align\":\"center\",\"padding\":\"1%\"}" | 41
+Ainda está cedo... Vamos lá **Agora!**
+>>5.97-65.43-14.31-1.84 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 42
+Enquanto isso...
+>>20.54-65.27-12.45-1.58 | "{\"text-align\":\"left\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 43
+Já são 20 felizes anos Marta...
+>>6.01-68.14-21.32-1.58 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 44
+Eu cresci amando essa cidade... Odeio ter que deixá-la assim!
+>>15.24-84.31-13.28-1.56 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 45
+É a campainha... quem está batendo essa hora da noite??
+>>49.73-65.42-43.5-1.87 | "{\"text-align\":\"left\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 46
+Doug apresentou o plano do grupo para Barkley...
+>>61.7-67.68-16.45-1.51 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 47
+Nós vamos bater em cada porta da cidade, acreditamos que
+>>65.91-71.42-14.23-1.53 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 48
+por nossos trabalhos e nossas casas valem apena lutar!
+>>81.17-67.49-11.4-1.53 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 49
+Eu... Eu não sei como dizer o quanto isso significa pra mim...
+>>83.06-73.78-10.4-1.53 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 50
+Eu estava bem desanimado... Até **Vocês** chegarem!
+>>92.55-92.11-1.56-1.53 | "{\"text-align\":\"center\",\"color\":\"#000000\",\"padding\":\"1px\"}" | 51
+5
+$END pagina_4
+$START pagina_5 | "{}" | @baseURL@006.jpg
+$END pagina_5
+$FONTS
+https://fonts.googleapis.com/css2?family=Cause:wght@100..900&family=Schoolbell&display=swap
+$ENDFONTS
+$CONSTS
+@ baseURL | D:\projs\GO\psrt\go\assets\o-homem-que-nao-desistia
+$ENDCONSTS

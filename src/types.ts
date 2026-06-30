@@ -121,3 +121,9 @@ export interface WasmResult {
   err?: string
   data?: Uint8Array
 }
+
+/** Options for initPsrt() — applied once, when the core boots. */
+export interface InitOptions {
+  /** Caps how many SVG path commands are written per line in a ~~ block body. Defaults to 20. */
+  pathCommandsPerLine?: number
+}
