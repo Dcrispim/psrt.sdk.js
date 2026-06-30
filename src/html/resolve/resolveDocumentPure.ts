@@ -1,10 +1,10 @@
 import type { PsrtDocument } from '../../types.js'
-import { expandConsts, expandConstsInStyle } from '../text/expandConsts.js'
+import { constsWithInteractive, expandConsts, expandConstsInStyle } from '../text/expandConsts.js'
 import { normalizeTextContent } from '../text/inlineMarkup.js'
 
 /** Expands all @const@ placeholders in styles, content, and URLs. */
 export function resolveDocumentPure(doc: PsrtDocument): PsrtDocument {
-  const consts = doc.consts
+  const consts = constsWithInteractive(doc.consts, doc.iConst)
   if (!consts || Object.keys(consts).length === 0) return doc
 
   return {

@@ -1,11 +1,24 @@
 /** JSON object or compact style string from PSRT. */
 export type PsrtStyle = Record<string, unknown> | string
 
+/**
+ * Behavioural $CONSTS entry (`@type:render | value`). `type` selects a renderer
+ * (link, desc, …); `render` is the inline text; `value` is the handler payload
+ * (URL, modal content, …). Consumers interpret `type`/`value` — no core coupling.
+ */
+export interface InteractiveConst {
+  type: string
+  render: string
+  value: string
+}
+
 /** Canonical PSRT document representation. */
 export interface PsrtDocument {
   pages: PsrtPage[]
   fonts: string[]
   consts: Record<string, string>
+  /** Interactive $CONSTS entries, keyed by the `type:render` reference token. */
+  iConst?: Record<string, InteractiveConst>
   /** Embedded assets from $SOURCE block (URL → data URI). */
   sources?: Record<string, string>
 }

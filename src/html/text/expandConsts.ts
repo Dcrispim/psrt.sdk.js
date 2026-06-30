@@ -1,3 +1,19 @@
+import type { InteractiveConst } from '../../types.js'
+
+/**
+ * Mirrors psrt.ConstsWithInteractive — flattens interactive consts to their
+ * Render text so @type:render@ collapses to the base label in HTML snapshots.
+ */
+export function constsWithInteractive(
+  consts: Record<string, string> | undefined,
+  iConst: Record<string, InteractiveConst> | undefined,
+): Record<string, string> | undefined {
+  if (!iConst || Object.keys(iConst).length === 0) return consts
+  const merged: Record<string, string> = { ...consts }
+  for (const [token, ic] of Object.entries(iConst)) merged[token] = ic.render
+  return merged
+}
+
 /** Mirrors psrt.ExpandConsts — longer keys first to avoid prefix clashes. */
 export function expandConsts(
   content: string,
