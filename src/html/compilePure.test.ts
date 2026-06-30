@@ -49,6 +49,25 @@ describe('compileToHtmlPure', () => {
     expect(doc.pages[0]?.imageUrl).toBe('https://example.com/a.png')
   })
 
+  it('resolveDocumentPure strips interactive consts to their render text', () => {
+    const doc = resolveDocumentPure({
+      pages: [
+        {
+          name: 'p',
+          style: {},
+          imageUrl: 'x',
+          texts: [
+            { x: 1, y: 1, width: 1, textSize: 1, index: 0, style: {}, content: 'Join @link:Discord@' },
+          ],
+        },
+      ],
+      fonts: [],
+      consts: {},
+      iConst: { 'link:Discord': { type: 'link', render: 'Discord', value: 'https://d.example' } },
+    })
+    expect(doc.pages[0]?.texts?.[0]?.content).toBe('Join Discord')
+  })
+
   it('embeds pre-resolved font data URIs from doc.fonts (sync compile)', () => {
     const woff2 = new Uint8Array([0x77, 0x4f, 0x46, 0x32])
     let binary = ''

@@ -22,6 +22,7 @@ export type {
   CompileToHtmlPureOptions,
   PsrtVariant,
   Document,
+  InteractiveConst,
   MaskPositionFields,
   Page,
   PositionFields,
